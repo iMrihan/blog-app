@@ -6,7 +6,7 @@ router.get("/", async (req, res, next) => {
   res.send({ message: "Ok api is working 🚀" });
 });
 
-router.post("/add-blog", async (req, res) => {
+router.post("/create-blog", async (req, res) => {
   let blog = new Blog(req.body);
   let result = await blog.save();
   res.send(result);
