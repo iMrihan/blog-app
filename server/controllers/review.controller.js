@@ -12,7 +12,6 @@ router.post("/create", async (req, res) => {
   let result = await review.save();
   let { _id, blog_id } = review;
 
-  console.log("hello");
   let blog = await Blog.findById({ _id: blog_id });
   blog.reviews.push(_id);
   await blog.save();

@@ -1,0 +1,121 @@
+.nav-ul {
+  display: flex;
+  gap: 20px;
+  padding: 5px;
+
+  margin: 0;
+  background-color: rgb(10, 71, 96);
+}
+.nav-ul > li {
+  list-style: none;
+  padding: 10px;
+}
+
+.nav-ul > li > a {
+  color: #fff;
+
+  text-decoration: none;
+}
+
+.Footer {
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(8, 81, 110);
+}
+.inputBox {
+  display: block;
+  margin: 25px;
+  padding: 8px;
+  width: 300px;
+  border: 1px solid skyblue;
+}
+.register,
+.blog {
+  margin-left: 30%;
+}
+.login {
+  margin-left: 30%;
+  margin-top: 50px;
+}
+
+.signup-button {
+  margin: 10px 25px;
+  padding: 10px;
+  width: 150px;
+  background-color: skyblue;
+  border: 1px solid;
+  cursor: pointer;
+}
+.login-button,
+.blog-button {
+  margin: 10px 25px;
+  padding: 10px;
+  width: 150px;
+  background-color: skyblue;
+  border: 1px solid;
+  cursor: pointer;
+}
+
+.nav-right {
+  justify-content: end;
+  padding-right: 40px;
+}
+.logo {
+  float: left;
+  width: 45px;
+  border-radius: 50%;
+
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.nav {
+  margin: 0;
+  padding: 5px;
+  background-color: rgb(10, 71, 96);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.invalid-input {
+  color: red;
+  margin-top: -20px;
+  margin-left: 25px;
+  display: block;
+}
+.blogs-list {
+  /* text-align: center; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  /* border: 1px solid red; */
+  justify-content: center;
+}
+
+.search-blog-box {
+  width: 400px;
+  margin: 20px;
+  height: 38px;
+  padding-left: 30px;
+  border: 1px solid skyblue;
+}
+
+.card-items {
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
