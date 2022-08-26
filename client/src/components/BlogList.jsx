@@ -16,7 +16,9 @@ export default function BlogList() {
 
   const getBlog = async () => {
     try {
-      let result = await fetch("http://localhost:3005/api/blogs");
+      let result = await fetch(
+        "https://moneyyapp-assignmet2.herokuapp.com/api/blogs"
+      );
       result = await result.json();
       setBlog(result);
       setLoading(false);
@@ -26,9 +28,12 @@ export default function BlogList() {
   };
 
   const deleteBlog = async (id) => {
-    let result = await fetch(`http://localhost:3005/api/blog/${id}`, {
-      method: "Delete",
-    });
+    let result = await fetch(
+      `https://moneyyapp-assignmet2.herokuapp.com/api/blog/${id}`,
+      {
+        method: "Delete",
+      }
+    );
 
     result = await result.json();
     if (result) {
@@ -36,7 +41,6 @@ export default function BlogList() {
     }
   };
 
-  console.log(blog);
   return loading ? (
     <h1 style={{ textAlign: "center" }}>...Loading</h1>
   ) : (

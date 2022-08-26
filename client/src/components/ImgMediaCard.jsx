@@ -7,10 +7,9 @@ import Typography from "@mui/material/Typography";
 import { Link } from "react-router-dom";
 export default function ImgMediaCard({ el, deleteBlog }) {
   const { title, text, _id, reviews } = el;
-  console.log("review", reviews);
 
   return (
-    <Card sx={{ maxWidth: 400 }}>
+    <Card sx={{ maxWidth: 400, padding: "15px" }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}
@@ -42,7 +41,7 @@ export default function ImgMediaCard({ el, deleteBlog }) {
             to={`/create-review/${el._id}`}
             style={{ textDecoration: "none", color: "green" }}
           >
-            Add-Review
+            Create-Review
           </Link>
         </Button>
       </CardActions>
@@ -60,9 +59,9 @@ export default function ImgMediaCard({ el, deleteBlog }) {
 
       {reviews.length > 0 &&
         reviews.map((el, i) => (
-          <ol key={i}>
+          <ul key={i}>
             <li>{el.description}</li>
-          </ol>
+          </ul>
         ))}
     </Card>
   );

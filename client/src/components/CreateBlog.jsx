@@ -21,23 +21,27 @@ export default function CreateBlog() {
       return false;
     }
 
-    let result = await fetch("http://localhost:3005/api/create-blog", {
-      method: "Post",
-      body: JSON.stringify(blog),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      "https://moneyyapp-assignmet2.herokuapp.com/api/create-blog",
+      {
+        method: "Post",
+        body: JSON.stringify(blog),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-    setBlog(initial);
-    navigate("/");
     result = await result.json();
-    console.log(result);
+    if (result) {
+      setBlog(initial);
+      navigate("/");
+    }
   };
 
   return (
     <div className="blog">
-      <h1>Add Blog</h1>
+      <h1>Create Blog</h1>
       <form onSubmit={handleSubmit}>
         <input
           required
@@ -68,7 +72,7 @@ export default function CreateBlog() {
         <br />
         <br />
         <br />
-        <input className="blog-button" type="submit" value="Add Blog" />
+        <input className="blog-button" type="submit" value="Create Blog" />
       </form>
     </div>
   );

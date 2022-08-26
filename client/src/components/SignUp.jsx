@@ -29,16 +29,18 @@ const SignUp = () => {
     try {
       e.preventDefault();
 
-      let result = await fetch("http://localhost:3005/api/users/register", {
-        method: "Post",
-        body: JSON.stringify(userData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let result = await fetch(
+        "https://moneyyapp-assignmet2.herokuapp.com/api/users/register",
+        {
+          method: "Post",
+          body: JSON.stringify(userData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       result = await result.json();
-      console.log(result);
 
       if (!result.message) {
         setError("");

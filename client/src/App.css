@@ -93,6 +93,7 @@
   gap: 20px;
   /* border: 1px solid red; */
   justify-content: center;
+  margin-bottom: 40px;
 }
 
 .search-blog-box {
@@ -103,8 +104,6 @@
   border: 1px solid skyblue;
 }
 
-.card-items {
-}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

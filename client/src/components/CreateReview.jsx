@@ -25,18 +25,22 @@ export default function CreateReview() {
       return false;
     }
 
-    let result = await fetch("http://localhost:3005/api/reviews/create", {
-      method: "Post",
-      body: JSON.stringify(review),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      "https://moneyyapp-assignmet2.herokuapp.com/api/reviews/create",
+      {
+        method: "Post",
+        body: JSON.stringify(review),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-    setReview(initial);
-    navigate("/");
     result = await result.json();
-    console.log(result);
+    if (result) {
+      setReview(initial);
+      navigate("/");
+    }
   };
 
   return (
@@ -56,10 +60,7 @@ export default function CreateReview() {
           <span className="invalid-input">Enter valid Review</span>
         )}
 
-        <br />
-        <br />
-        <br />
-        <input className="blog-button" type="submit" value="Add Review" />
+        <input className="blog-button" type="submit" value="Create Review" />
       </form>
     </div>
   );

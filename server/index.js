@@ -15,6 +15,7 @@ const reviewController = require("./controllers/review.controller");
 app.use("/api/users", userController);
 app.use("/api", blogController);
 app.use("/api/reviews", reviewController);
+
 app.use((req, res, next) => {
   res.status(404).json({
     message: "bad request",

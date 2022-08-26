@@ -23,11 +23,12 @@ const Nav = () => {
       {auth ? (
         <ul className="nav-ul">
           <li>
-            <Link to="/create-blog">Create Blog</Link>
-          </li>
-          <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <Link to="/create-blog">Create Blog</Link>
+          </li>
+
           <li>
             <Link onClick={logout} to="/signup">
               Logout ( {JSON.parse(auth).name})

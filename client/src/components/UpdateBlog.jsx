@@ -21,28 +21,31 @@ export default function UpdateBlog() {
   }, []);
 
   const getBlogDetails = async (e) => {
-    let result = await fetch(`http://localhost:3005/api/blog/${id}`);
+    let result = await fetch(
+      `https://moneyyapp-assignmet2.herokuapp.com/api/blog/${id}`
+    );
 
     result = await result.json();
     setBlog(result);
-    console.log(result);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let result = await fetch(`http://localhost:3005/api/blog/${id}`, {
-      method: "Put",
-      body: JSON.stringify(blog),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      `https://moneyyapp-assignmet2.herokuapp.com/api/blog/${id}`,
+      {
+        method: "Put",
+        body: JSON.stringify(blog),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     result = await result.json();
     if (result) {
       navigate("/");
     }
-    console.log(result);
   };
 
   return (

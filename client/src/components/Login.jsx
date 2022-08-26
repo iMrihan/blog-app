@@ -25,13 +25,16 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    let result = await fetch("http://localhost:3005/api/users/login", {
-      method: "Post",
-      body: JSON.stringify(loginData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    let result = await fetch(
+      "https://moneyyapp-assignmet2.herokuapp.com/api/users/login",
+      {
+        method: "Post",
+        body: JSON.stringify(loginData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     result = await result.json();
     // console.log(result);
