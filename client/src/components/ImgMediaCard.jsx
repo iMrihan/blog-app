@@ -59,8 +59,8 @@ export default function ImgMediaCard({ el, deleteBlog }) {
       )}
 
       {reviews.length > 0 &&
-        reviews.map((el) => (
-          <ol>
+        reviews.map((el, i) => (
+          <ol key={i}>
             <li>{el.description}</li>
           </ol>
         ))}

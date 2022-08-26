@@ -4,23 +4,22 @@ import Nav from "./components/Nav";
 import SignUp from "./components/SignUp";
 import PrivateComponent from "./components/PrivateComponent";
 import Login from "./components/Login";
-import AddBlog from "./components/AddBlog";
+import CreateBlog from "./components/CreateBlog";
 import BlogList from "./components/BlogList";
 import UpdateBlog from "./components/UpdateBlog";
-import AddReview from "./components/AddReview";
+import CreateReview from "./components/CreateReview";
 function App() {
   return (
     <div className="App">
       <Nav />
       <Routes>
         <Route element={<PrivateComponent />}>
-          <Route path="/" element={<BlogList />} />
-          <Route path="/add" element={<AddBlog />} />
-          <Route path="/create-review/:id" element={<AddReview />} />
+          <Route path="/create-blog" element={<CreateBlog />} />
+          <Route path="/create-review/:id" element={<CreateReview />} />
           <Route path="/update/:id" element={<UpdateBlog />} />
           <Route path="/logout" element={<h1>Logout Component</h1>} />
         </Route>
-
+        <Route path="/" element={<BlogList />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />}></Route>
       </Routes>

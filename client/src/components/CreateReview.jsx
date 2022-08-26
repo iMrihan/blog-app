@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-export default function AddReview() {
+export default function CreateReview() {
   const { id } = useParams();
 
   const initial = {
@@ -41,7 +41,7 @@ export default function AddReview() {
 
   return (
     <div className="blog">
-      <h1>Add Review</h1>
+      <h1>Create Review</h1>
       <form onSubmit={handleSubmit}>
         <input
           required

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function AddBlog() {
+export default function CreateBlog() {
   const initial = {
     title: "",
     text: "",

@@ -15,20 +15,19 @@ const Nav = () => {
         className="logo"
         src="https://images-platform.99static.com/RtnLnvmEEPYFRW6Y9z2c_sScoTU=/18x1563:1533x3078/500x500/top/smart/99designs-contests-attachments/96/96847/attachment_96847724"
         alt="logo"
+        onClick={() => {
+          navigate("/");
+        }}
       />
 
       {auth ? (
         <ul className="nav-ul">
           <li>
-            <Link to="/">Blogs</Link>
+            <Link to="/create-blog">Create Blog</Link>
           </li>
           <li>
-            <Link to="/add">Add Blog</Link>
+            <Link to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/update">Update Blog</Link>
-          </li>
-
           <li>
             <Link onClick={logout} to="/signup">
               Logout ( {JSON.parse(auth).name})
@@ -37,6 +36,9 @@ const Nav = () => {
         </ul>
       ) : (
         <ul className="nav-ul nav-right">
+          <li>
+            <Link to="/">Blogs</Link>
+          </li>
           <li>
             <Link to="/signup">Sign Up</Link>
           </li>

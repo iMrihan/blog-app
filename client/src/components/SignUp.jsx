@@ -9,6 +9,7 @@ const SignUp = () => {
     password: "",
   };
   const [userData, setUserData] = useState(initial);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -25,27 +26,40 @@ const SignUp = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    try {
+      e.preventDefault();
 
-    let result = await fetch("http://localhost:3005/api/users/register", {
-      method: "Post",
-      body: JSON.stringify(userData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+      let result = await fetch("http://localhost:3005/api/users/register", {
+        method: "Post",
+        body: JSON.stringify(userData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-    result = await result.json();
-    console.log(result);
-    localStorage.setItem("user", JSON.stringify(result));
-    if (result) {
-      navigate("/");
+      result = await result.json();
+      console.log(result);
+
+      if (!result.message) {
+        setError("");
+        localStorage.setItem("user", JSON.stringify(result));
+        if (result) {
+          navigate("/");
+        }
+      } else if (result.message) {
+        setError(result.message);
+        alert(result.message);
+        navigate("/login");
+      }
+    } catch (error) {
+      console.log("error:", error);
     }
   };
 
   return (
     <div className="register">
       <h1>Register</h1>
+      <h2 style={{ color: "red" }}>{error}</h2>
       <form onSubmit={handleSubmit}>
         <input
           className="inputBox"

@@ -4,13 +4,20 @@ const User = require("../models/user.model");
 const router = express.Router();
 
 router.post("/register", async (req, res) => {
-  let user = new User(req.body);
-  let result = await user.save();
+  try {
+    let user = new User(req.body);
+    let result = await user.save();
 
-  result = result.toObject();
-  delete result.password;
+    result = result.toObject();
+    delete result.password;
 
-  res.send(result);
+    res.send(result);
+  } catch (error) {
+    res.status(500).json({
+      message: "Email already exist",
+      error: error,
+    });
+  }
 });
 
 router.post("/login", async (req, res) => {
